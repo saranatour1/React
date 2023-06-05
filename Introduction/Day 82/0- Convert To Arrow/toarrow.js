@@ -6,7 +6,7 @@ const blueBtn = document.getElementById("button");
 const alertBtn = document.getElementById("alert");
 const hoverBtn = document.getElementById("hover-this");
 const popOutVal = document.getElementById("popup-input");
-
+const paragraph = document.getElementById("paragraph");
 /**
  * First , changed into addEventListner, as it is more readable.
  *  onclick ==> click
@@ -25,6 +25,14 @@ hoverBtn.addEventListener("mouseover", () => {
 });
 
 hoverBtn.addEventListener("mouseout", () => {
+  setBackgroundColorById("body", "white");
+});
+
+paragraph.addEventListener("mouseover" , () =>{
+  setBackgroundColorById("body", "purple");
+});
+
+paragraph.addEventListener("mouseout" , () =>{
   setBackgroundColorById("body", "white");
 });
 
