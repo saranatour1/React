@@ -1,3 +1,4 @@
+console.time('myTimer');
 const pokémon = Object.freeze([
       { "id": 1,   "name": "Bulbasaur",  "types": ["poison", "grass"] },
       { "id": 5,   "name": "Charmeleon", "types": ["fire"] },
@@ -39,11 +40,17 @@ const bListPkmn = pokémon.filter( p => p.name[0] === "B" );
 const pkmnIds = pokémon.map( p => p.id );
 // console.log(pkmnIds);
 
-
+console.timeEnd('myTimer');
 // Requirments 
 // an array of pokémon objects where the id is evenly divisible by 3 
 const pokemonDivisibleByThree = pokémon.filter((elem) => elem.id %3 ===0);
-// console.table(pokemonDivisibleByThree);
+console.table(pokemonDivisibleByThree);
+// console.info(pokemonDivisibleByThree);
+// console.assert(pokemonDivisibleByThree);
+// console.warn(pokemonDivisibleByThree);
+// console.debug(pokemonDivisibleByThree);
+console.timeStamp();
+
 
 
 // an array of pokémon objects that are "fire" type
@@ -73,7 +80,8 @@ const flyingSecondTypePokemonFirstType = pokémon.filter(e => e.types.includes("
 
 // a count of the number of pokémon that are "normal" type
 const countPokemonOfTypeNormal = pokémon.filter(e => e.types.includes("normal")).length;
-console.log(countPokemonOfTypeNormal);
+// console.log(countPokemonOfTypeNormal);
+
 
 
 

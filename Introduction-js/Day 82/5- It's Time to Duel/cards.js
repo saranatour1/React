@@ -6,7 +6,6 @@ class Card {
   }
 } 
 
-
 class UnitCards extends Card {
   constructor(name, cost, power, resilience) {
     super(name, cost); 
