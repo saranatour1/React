@@ -51,27 +51,27 @@ const UserForm = (props) => {
 
             <input type="submit" value="Create User" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-40 mx-auto" />
         </form>
-<div className="mt-8 w-56 mx-auto">
-  <h3 className="text-lg font-medium text-gray-900">Your Form Data:</h3>
-  <div className="border rounded-lg p-4 mt-4 ">
-    <p className="mb-2">
-      <span className="font-medium text-gray-600">First Name:</span> {firstName}
-    </p>
-    <p className="mb-2">
-      <span className="font-medium text-gray-600">Last Name:</span> {lastName}
-    </p>
-    <p className="mb-2">
-      <span className="font-medium text-gray-600">Email Address:</span> {email}
-    </p>
-    <p className="mb-2">
-      <span className="font-medium text-gray-600">Password:</span> {password}
-    </p>
-    <p className="mb-2">
-      <span className="font-medium text-gray-600">Confirm Password:</span> {confirmPassword}
-    </p>
-    <p className="mt-2">{message}</p>
-  </div>
-</div>
+        <div className="mt-8 w-56 mx-auto">
+          <h3 className="text-lg font-medium text-gray-900">Your Form Data:</h3>
+          <div className="border rounded-lg p-4 mt-4 ">
+            <p className="mb-2">
+              <span className="font-medium text-gray-600">First Name:</span> {firstName}
+            </p>
+            <p className="mb-2">
+              <span className="font-medium text-gray-600">Last Name:</span> {lastName}
+            </p>
+            <p className="mb-2">
+              <span className="font-medium text-gray-600">Email Address:</span> {email}
+            </p>
+            <p className="mb-2">
+              <span className="font-medium text-gray-600">Password:</span> {password}
+            </p>
+            <p className="mb-2">
+              <span className="font-medium text-gray-600">Confirm Password:</span> {confirmPassword}
+            </p>
+            <p className="mt-2">{message}</p>
+          </div>
+        </div>
 
 
 </>

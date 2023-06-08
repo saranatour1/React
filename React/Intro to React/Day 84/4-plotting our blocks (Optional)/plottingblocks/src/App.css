@@ -44,3 +44,8 @@
   margin: 0 auto;
   width: 90vw;
 }
+
+.test{
+  display: flex;
+  height: 60%;
+}
