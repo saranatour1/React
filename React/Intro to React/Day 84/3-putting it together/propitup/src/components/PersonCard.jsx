@@ -9,6 +9,9 @@ class PersonCard extends Component {
       age: parseInt(this.props.age, 10),
     };
   }
+  state = {
+    age: this.props.age,
+  }
 
 
   increaseByOne = () => {

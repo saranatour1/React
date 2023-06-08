@@ -1,5 +1,5 @@
 {
-  "name": "propitup",
+  "name": "plottingblocks",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -34,13 +34,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/preset-env": "^7.22.4",
-    "@babel/preset-react": "^7.22.3",
-    "babel-jest": "^29.5.0",
-    "jest": "^27.5.1",
-    "react-test-renderer": "^18.2.0",
-    "tailwindcss": "^3.3.2"
   }
 }
