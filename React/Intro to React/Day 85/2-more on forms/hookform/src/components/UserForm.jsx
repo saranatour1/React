@@ -49,6 +49,7 @@ const matchPassword = (e) => {
     setMessage("Passwords Match!");
   } else if (id === "confirmPassword" && value === password) {
     setMessage("Passwords Match!");
+    // console.log("I am here ");
   } else {
     setMessage("Keep Trying!");
   }
