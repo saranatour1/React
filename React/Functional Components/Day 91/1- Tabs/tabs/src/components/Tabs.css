@@ -1,0 +1,10 @@
+.redBtn{
+  background-color: red;
+  background-blend-mode: lighten;
+  
+}
+
+.blackBtn{
+  background-color: black;
+  background-blend-mode: lighten;
+}
