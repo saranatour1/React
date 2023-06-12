@@ -1,6 +1,12 @@
-import React from "react";
+import React  from "react";
 import './ListInput.css';
+
 function ListItem({ item, toggleItem, deleteItem }) {
+
+
+
+
+  console.log("I got these information from the local storage" , JSON.parse(localStorage.getItem("myItems")));
   return (
     <li className="mt-4">
       <label className={item.seen ? "strike" : ""}>

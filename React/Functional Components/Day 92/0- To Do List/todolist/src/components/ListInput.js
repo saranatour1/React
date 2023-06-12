@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect , useState } from "react";
 import './ListInput.css';
 import ListItem from './ListItem';
 let nextId = 0;
@@ -7,33 +7,42 @@ function ListInput() {
   const [title, setTitle] = useState("");
   const [items, setItems] = useState([]);
   
-  // strignifying an object 
+  useEffect(() => {
+    if (localStorage.getItem("myItems") !== null) {
+      setItems(JSON.parse(localStorage.getItem("myItems")));
+    }
+  }, []);
   
-  //retrevieng that string as an object
  
 
   const addItems = () => {
     setItems([...items, { id: nextId++, title: title, seen: false }]);
-    localStorage.setItem("myItems",JSON.stringify(items));
+    localStorage.setItem("myItems",JSON.stringify([...items, { id: nextId++, title: title, seen: false }]));
     console.log("I got these information from the local storage" , JSON.parse(localStorage.getItem("myItems")));
     setTitle("");
   };
 
   const deleteItem = (id) => {
     setItems(items.filter((item) => item.id !== id));
-
+    const storedItems = JSON.parse(localStorage.getItem("myItems"));
+    const updatedItems = storedItems.filter((item) => item.id !== id);
+    localStorage.setItem("myItems",JSON.stringify(updatedItems));
   };
 
   const toggleItem = (id) => {
-    setItems(
-      items.map((item) => {
-        if (item.id === id) {
-          return { ...item, seen: !item.seen };
-        }
-        return item;
-      })
-    );
+    const storedItems = JSON.parse(localStorage.getItem("myItems"));
+    const updatedItems = storedItems.map((item) => {
+      if (item.id === id) {
+        return { ...item, seen: !item.seen };
+      }
+      return item;
+    });
+    setItems(updatedItems);
+
+    localStorage.setItem("myItems", JSON.stringify(updatedItems));
+
   };
+
 
   const preventDefaultBehaviour = (e) => {
     e.preventDefault();
