@@ -3,7 +3,8 @@ const app = express();
 const { faker } = require('@faker-js/faker');
 const newObjectUser  =require('./controllers/newObjectUser.js');
 const newCompanyObject  =require('./controllers/newCompanyObject.js');
-const newProductObject = require('./controllers/newProductObject.js')
+const newProductObject = require('./controllers/newProductObject.js');
+
 // we can create a function to return a random / fake "Product"
 
 // res is short for response
@@ -18,6 +19,13 @@ app.get("/api/user/new", (req, res) => {
   console.table(newFakeUser);
   res.json(newFakeUser);
 });
+
+app.get("/api/test" , (req , res) => {
+
+  console.log(user);
+
+})
+
 
 app.get("/api/company/new", (req, res) => {
   const newFakeCompany = newCompanyObject.createCompany();

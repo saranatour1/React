@@ -8,6 +8,8 @@ const createUser = () => {
     email: faker.internet.email(),
     password: faker.internet.password(),
     phoneNumber: faker.phone.number(),
+    birthdate: faker.date.birthdate(),
+    registeredAt: faker.date.past(),
   };
   return user;
 };
