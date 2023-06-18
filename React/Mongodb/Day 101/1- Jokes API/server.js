@@ -14,6 +14,6 @@ app.use(express.json(), express.urlencoded({ extended: true }));
 
 allJokesRoutes(app);
     
-app.listen(8000, () => console.log("The server is all fired up on port 8000"));
+app.listen(4000, () => console.log("The server is all fired up on port 4000"));
 
 
