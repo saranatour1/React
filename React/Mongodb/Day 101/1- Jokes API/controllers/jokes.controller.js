@@ -12,22 +12,27 @@ module.exports.findAllJokes = (req, res) => {
 }
 // get a single joke
 module.exports.findOneSingleJoke = (req, res) => {
+
     Joke.findOne({ _id: req.params.id })
         .then(joke => {
             res.json({ joke: joke })
         })
         .catch((err) => {
             res.json({ message: 'Something went wrong in retrieving a single Joke ', error: err })
-        });}
+        });
+    }
  
 //random joke
 //sample 
-module.exports.findRandomJoke = (req, res) => {
-    
-
-};
+module.exports.getRandom = (req, res) => {
+    Joke.find({}).then(joke=>res.json({allJokes: joke}))
+    .catch((err) => {
+        res.json( {message: 'Something went wrong in retrieving a random  single Joke ', error: err });
+    })
+  };
   
-
+  
+  
 
 //create a new joke 
 module.exports.createNewJoke = (req, res) => {
