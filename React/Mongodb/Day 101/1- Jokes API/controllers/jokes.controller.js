@@ -14,6 +14,7 @@ module.exports.findAllJokes = (req, res) => {
 };
 // get a single joke
 module.exports.findOneSingleJoke = (req, res) => {
+  console.log("hi")
   Joke.findOne({ _id: req.params.id })
     .then((joke) => {
       res.json({ joke: joke });
