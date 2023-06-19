@@ -17,9 +17,7 @@ function Display() {
       .catch((error) => {
         if (error.response && error.response.status === 404) {
           navigate("/notfound", { replace: true });
-        } else {
-          throw error;
-        }
+        } 
       });
   }, [cat, id, navigate]);
 

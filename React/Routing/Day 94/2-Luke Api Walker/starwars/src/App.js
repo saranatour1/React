@@ -7,8 +7,6 @@ import axios from "axios";
 import { Routes, Route } from "react-router-dom";
 import NotFound from "./components/NotFound";
 
-
-
 function App() {
   const [options, setOptions] = useState([]);
   const [idOf, setId] = useState("");

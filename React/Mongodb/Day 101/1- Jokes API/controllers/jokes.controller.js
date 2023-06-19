@@ -29,6 +29,8 @@ module.exports.findOneSingleJoke = (req, res) => {
 
 //random joke
 //sample
+
+//https://stackoverflow.com/questions/39277670/how-to-find-random-record-in-mongoose
 exports.getRandomJoke = (req, res) => {
   Joke.countDocuments()
     .exec()
@@ -64,7 +66,7 @@ exports.getRandomJoke = (req, res) => {
 
 //create a new joke
 module.exports.createNewJoke = (req, res) => {
-  Joke.create(req.body)
+  Joke.create(req.body) //destructure this 
     .then((lastCreatedJoke) => {
       res.json({ joke: lastCreatedJoke });
     })
