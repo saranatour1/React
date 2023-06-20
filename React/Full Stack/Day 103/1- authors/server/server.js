@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const express = require("express");
 const app = express();
-const allProductsRoutes = require("./routes/products.routes");
+const allAuthorsRoutes = require("./routes/authors.routes");
 const cors = require('cors');
+const port = 8000; 
 app.use(cors());
 
 require("./config/mongoose.config");
@@ -14,8 +15,8 @@ app.get("/api", (req, res) => {
 app.use(express.json(), express.urlencoded({ extended: true }));
     
 
-allProductsRoutes(app);
+allAuthorsRoutes(app);
     
-app.listen(8000, () => console.log("The server is all fired up on port 8000"));
+app.listen(port, () => console.log(`The server is all fired up on port ${port}`));
 
 
