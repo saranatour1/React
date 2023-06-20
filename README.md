@@ -209,8 +209,9 @@ and There we go!, We are all set up in the backend ,lets check out postman.
 install react-router-dom, axios , and any other thing you might need. then start working
 
 in the case of this assignment: authors, this the steps I took. 
+![Untitled](https://github.com/saranatour1/React/assets/77834808/82c40704-007d-4440-a006-b376666d689c)
 
-![Untitled](Steps%20to%20edit%20the%20functionality%203679ecddfe9b4e0f9bbb888ad1e3f422/Untitled.png)
+
 
 ### Main root
 
