@@ -41,10 +41,7 @@ module.exports.createNewAuthor = (req, res) => {
       // console.log(lastCreatedAuthor);
     })
     .catch((err) => {
-      res.json({
-        message: "Something went wrong with creating a new Author ",
-        error: err,
-      });
+      res.status(400).json(err);
     });
 };
 
@@ -59,12 +56,10 @@ module.exports.updateAuthor = (request, response) => {
       console.log(updatedAuthor);
     })
     .catch((err) => {
-      res.json({
-        message: "Something went wrong with Updating a Author ",
-        error: err,
+        res.status(400).json(err);
       });
-    });
-};
+    };
+
 
 // delete a product by id
 module.exports.deleteAuthor = (request, response) => {

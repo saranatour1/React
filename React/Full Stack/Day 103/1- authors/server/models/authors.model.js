@@ -4,8 +4,8 @@ const authorsSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, "title is required"],
-      minLength: [2, "title needs to be at least 10 charecter"],
+      required: [true, "Name is required"],
+      minLength: [5, "Name needs to be at least 5 charecter"],
     },
   },
   {

@@ -2,7 +2,8 @@ import './App.css';
 import { Routes ,Route} from 'react-router-dom';
 import MainPage from './views/MainPage';
 import InfoPage from './views/InfoPage';
-import UpdateProduct from './components/UpdateProduct';
+import AddAuthorPage from './views/AddAuthorPage';
+import UpdateAuthor from './views/UpdateAuthor';
 
 
 
@@ -13,8 +14,9 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={ <MainPage /> } />
-        <Route path ="/products/:id" element ={<InfoPage />}/>
-        <Route  path="/products/:id/edit" element ={<UpdateProduct />}/>
+        <Route path ="/authors/:id" element ={<InfoPage />}/>
+        <Route path = '/new' element = {<AddAuthorPage />}/>
+        <Route  path="/authors/:id/edit" element ={<UpdateAuthor />}/>
       </Routes>
 
 

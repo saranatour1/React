@@ -5,17 +5,17 @@ import React from 'react'
 function DeleteButton({removeFromDom ,id}) {
 
 
-  const deleteProduct = (prodId) => {
-    axios.delete(`http://localhost:8000/api/products/${prodId}`)
+  const deleteAuthor = (authorId) => {
+    axios.delete(`http://localhost:8000/api/authors/${authorId}`)
       .then(res => {
-        removeFromDom(prodId);
+        removeFromDom(authorId);
       })
       .catch(err => console.error(err));
   }
 
 
   return (
-    <button onClick={(e) => { deleteProduct(id) }}>
+    <button onClick={(e) => { deleteAuthor(id) }}>
             Delete
     </button>
   )
