@@ -4,7 +4,7 @@ import Info from '../components/Info';
 function InfoPage() {
   return (
     <div>
-      <Info />
+      <Info  />
     </div>
   )
 }

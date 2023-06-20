@@ -1,66 +1,48 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from "react-router-dom";
+import { useParams } from 'react-router-dom';
+import FormInput from './FormInput';
 
 function UpdateProduct() {
   const { id } = useParams();
-  const [title, setTitle] = useState("");
-  const [price, setPrice] = useState(0);
-  const [descreption, setDescreption] = useState("");
-
+  const [product, setProduct] = useState({});
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
+    axios
+      .get(`http://localhost:8000/api/products/${id}`)
+      .then(res => {
+        console.log(res.data);
+        setProduct(res.data);
+        setLoaded(true);
+      })
+      .catch(err => console.log(err));
+  }, []);
 
-    axios.get(`http://localhost:8000/api/products/${id}`)
-        .then(res => {
-          console.log(res.data);
-            setTitle(res.data.title);
-            setPrice(res.data.price);
-            setDescreption(res.data.descreption);
-        })
-
-}, []);
-
-
-const updateProduct = e => {
-  e.preventDefault();
-  console.log("Trying to update");
-  axios.put(`http://localhost:8000/api/products/${id}/edit`, {
-      title,
-      price,
-      descreption
-  })
+  const updateProduct = product => {
+    // e.preventDefault();
+    console.log('Trying to update');
+    axios
+      .put(`http://localhost:8000/api/products/${id}/edit`, product)
       .then(res => console.log(res))
       .catch(err => console.log(err));
-}
+  };
 
+  if (!loaded) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div>
-      <h3>update an Item </h3>
-      <form  onSubmit={updateProduct} >
-        <div>
-          <label htmlFor="title"> Title</label>
-          <input type="text" value={title} onChange={e=> setTitle(e.target.value)} />
-        </div>
-        
-        <div>
-          <label htmlFor="price"> Price</label>
-          <input type="number" value={price} onChange={e=> setPrice(e.target.value)} />
-        </div>
-        
-        <div>
-          <label htmlFor="descreption"> Descreption</label>
-          <input type="text" value={descreption} onChange={e=> setDescreption(e.target.value)} />
-        </div>
-
-      <button >Submit</button>
-      </form>
-
-
+      <h3>Update an Item</h3>
+      <FormInput
+        onSubmitProp={updateProduct}
+        initialTitle={product.title}
+        initialPrice={product.price}
+        initialDescreption={product.descreption}
+      />
     </div>
-  )
+  );
 }
 
 export default UpdateProduct;
-

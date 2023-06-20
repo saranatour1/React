@@ -1,43 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ListOfItems from './ListOfItems';
+import { Link } from 'react-router-dom';
+import DeleteButton from './DeleteButton';
 
-function Display() {
-  const [products, setProducts] = useState([]);
-  const [loaded, setLoaded] = useState(false);
+function Display({ removeFromDom, items }) {
+  // const [products, setProducts] = useState(items);
+  // const [loaded, setLoaded] = useState(false);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('http://localhost:8000/api/products');
-        setProducts(response.data);
-        setLoaded(true);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    // console.log(products.Products.filter(item => console.log(item)))
-    fetchData();
-  }, []);
+  // get all the products 
 
-
-
-  
-
-  const removeFromDom = productId => {
-    setProducts(products.filter(product => product._id !== productId));
-}
-
-  if (!loaded) {
-    return <p>Loading...</p>;
-  }
 
   return (
     <div>
-        {loaded && <ListOfItems removeFromDom ={removeFromDom} items = {products}/> }
-        helloooooooo
-        
-     </div>
+      {items.map((item, idx) => (
+        <div key={idx}>
+          <Link to={`/products/${item._id}`}>{item.title}</Link>
+          <Link to={`/products/${item._id}/edit`}>
+            Edit
+          </Link>
+          <DeleteButton  removeFromDom ={removeFromDom} id={item._id}/>
+        </div>
+      ))}
+    </div>
   );
 }
 
