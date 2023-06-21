@@ -10,7 +10,7 @@ function LinkHeader() {
     
       <Stack direction="row" spacing={5}>
           <Button variant="text"><Link to='/players/list'> Manage Players</Link></Button>
-          <Button variant="text"><Link to='/status/game/1'> Manage Player Status </Link></Button>
+          <Button variant="text"><Link to='/status/game'> Manage Player Status </Link></Button>
       </Stack>
 
   )

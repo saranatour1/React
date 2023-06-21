@@ -1,6 +1,6 @@
 .button {
   display: inline-block;
-  background-color: #4caf50;
+  background-color: #4caaaf;
   color: white;
   padding: 10px 20px;
   border-radius: 4px;
@@ -30,4 +30,10 @@
 
 .button.danger:hover {
   background-color: #c82333;
+}
+
+
+
+.button.selected {
+  background-color: green; 
 }

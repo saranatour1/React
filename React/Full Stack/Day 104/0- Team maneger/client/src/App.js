@@ -18,7 +18,8 @@ function App() {
       <Routes>
           <Route exact path='/players/list' element={<MainPage />} />
           <Route path='/players/addplayer' element={<AddPlayerPage />} />
-          <Route path= '/status/game/:gameIndex' element={<StatusPage />} />
+          <Route path= '/status/game' element={<StatusPage />} />
+          <Route path= '/status/game/:id' element={<StatusPage />} />
       </Routes>
     </div>
   );

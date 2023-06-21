@@ -1,25 +1,46 @@
 import React, { useEffect, useState } from 'react'
 import LinkHeader from '../components/LinkHeader';
 import CardComponent from '../components/CardComponent';
-import SecondaryHeader from '../components/SecondaryHeader';
+
 import axios from 'axios';
-import Display from '../components/Display';
+
+import {useParams,useLocation ,useNavigate} from 'react-router-dom';
+
 import DisplayStatus from '../components/DisplayStatus';
 import GameHeader from '../components/GameHeader';
 
+
 function StatusPage() {
+  const {id} = useParams();
+  const location = useLocation()
+  const navigate = useNavigate();
 
   const [loaded, setLoaded] = useState(false);
   const [games, setGames] = useState([]);
   const [players, setPlayers] = useState([]);
 
+  //to update a game in sloppy mode , get the game, 
+
+
+
+
+
+
+
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/games");
+        const response = await axios.get(`http://localhost:8000/api/games`);
         setGames(response.data);
         setLoaded(true);
-        console.log(response.data)
+        console.log(response.data[0]._id)
+
+        if(location.pathname.includes('/status/game')){
+          navigate(`/status/game/${response.data[0]._id}`);
+        }
+    
+
       } catch (err) {
         console.log(err);
       }

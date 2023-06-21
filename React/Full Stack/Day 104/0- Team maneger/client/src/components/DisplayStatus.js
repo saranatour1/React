@@ -6,10 +6,26 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import DeleteButton from './DeleteButton';
+
+import styles from './DeleteButton.module.css'
+
+// import DeleteButton from './DeleteButton';
 import { Link, useLocation } from 'react-router-dom';
 
 function DisplayStatus({items ,people}) {
+console.log(console.log(items ,people));
+
+const [selectedChoice, setSelectedChoice] = useState({});
+
+const handleChoice = (personId, choice) => {
+  setSelectedChoice(prevState => ({
+    ...prevState,
+    [personId]: choice
+  }));
+};
+
+console.log(selectedChoice)
+
 
   return (
     <div>
@@ -33,7 +49,29 @@ function DisplayStatus({items ,people}) {
                 
               </TableCell>
 
-              <TableCell align="right"> </TableCell>
+              <TableCell align="right">
+              <button
+                  className={`${styles.button} ${selectedChoice[row._id] === 'playing' ? styles.selected : ''}`}
+                  onClick={() => handleChoice(row._id, 'playing')}
+                >
+                  Playing
+                </button>
+                <button
+                  className={`${styles.button} ${selectedChoice[row._id] === 'not playing' ? styles.selected : ''}`}
+                  onClick={() => handleChoice(row._id, 'not playing')}
+                >
+                  Not Playing
+                </button>
+                <button
+                  className={`${styles.button} ${selectedChoice[row._id] === 'undecided' ? styles.selected : ''}`}
+                  onClick={() => handleChoice(row._id, 'undecided')}
+                >
+                  Undecided
+                </button>
+
+
+              </TableCell>
+
             </TableRow>
           )) }
         </TableBody>
