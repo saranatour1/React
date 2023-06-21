@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import ListOfItems from './ListOfItems';
+
 import { Link } from 'react-router-dom';
 import DeleteButton from './DeleteButton';
 

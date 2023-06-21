@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import Button from '@mui/material/Button';
 
 function Header() {
   const [linkPath, setLinkPath] = useState({ '/new': 'Add a new author' });
@@ -22,8 +23,9 @@ function Header() {
   // console.log(linkKey,linkValue,linkPath)
   return (
     <div>
-      <h3>Favorite Authors</h3>
-      <Link to={linkKey}>{linkValue}</Link>
+      <h3 className= "mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-white mt-10">Favorite Authors</h3>
+      <Button><Link to={linkKey}>{linkValue}</Link></Button>
+      
     </div>
   );
 }
