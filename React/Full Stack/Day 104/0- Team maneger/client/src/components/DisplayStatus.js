@@ -9,36 +9,21 @@ import Paper from '@mui/material/Paper';
 import DeleteButton from './DeleteButton';
 import { Link, useLocation } from 'react-router-dom';
 
-function Display({items ,removeFromDom}) {
-  console.log(items);
-  const location = useLocation();
-  const [isMainPage , setMainPage] = useState(true);
+function DisplayStatus({items ,people}) {
 
-  useEffect(() => {
-    if(location.pathname ==='/players/list'){
-      setMainPage(true);
-    }else{
-      setMainPage(false)
-    }
-
-  }, [items, location.pathname]);
-
-
-
-  
   return (
+    <div>
     <div style={{width:'60%', margin: '1em auto'}}>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Team name</TableCell>
-            <TableCell align="right">Preferred Position</TableCell>
             <TableCell align="right">Actions</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {isMainPage ? items.map((row) => (
+          { people.map((row) => (
             <TableRow
               key={row._id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -47,17 +32,16 @@ function Display({items ,removeFromDom}) {
               <Link to={`/players/${row._id}`}>{row.name }</Link>
                 
               </TableCell>
-              <TableCell component="th" scope="row">
-                {row.position }
-              </TableCell>
-              <TableCell align="right"> <DeleteButton removeFromDom={removeFromDom} id={row._id} /></TableCell>
+
+              <TableCell align="right"> </TableCell>
             </TableRow>
-          )) : <p>hello</p>}
+          )) }
         </TableBody>
       </Table>
     </TableContainer>
     </div>
+    </div>
   )
 }
 
-export default Display;
+export default DisplayStatus;
