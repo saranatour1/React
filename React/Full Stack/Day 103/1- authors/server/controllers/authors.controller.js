@@ -47,18 +47,25 @@ module.exports.createNewAuthor = (req, res) => {
 
 // updated this function so that it updated the vaalues , but does not return an object.
 module.exports.updateAuthor = (request, response) => {
-  // console.log(request.body);
-  Author.findOneAndUpdate({ _id: request.params.id }, request.body, {
-    new: true,
-  }) // this line is edited
+  const { name } = request.body;
+  
+  if (name && name.length < 5) { 
+    return response.status(400).json({ errors: { name: "Name is too short. Minimum length is 5 characters." }});
+  }
+  if (!name) { 
+    return response.status(400).json({ errors: {name: "Name is required"} });
+  }
+
+  Author.findOneAndUpdate({ _id: request.params.id }, request.body, { new: true })
     .then((updatedAuthor) => {
       response.json(updatedAuthor);
       console.log(updatedAuthor);
     })
     .catch((err) => {
-        res.status(400).json(err);
-      });
-    };
+      response.status(400).json(err);
+    });
+};
+
 
 
 // delete a product by id

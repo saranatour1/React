@@ -23,24 +23,27 @@ function UpdateAuthor() {
       .catch(err => console.log(err));
   }, []);
 
-
+  // navigate('/');
 // update  
 const updateAuthor = author => {
   // e.preventDefault();
   console.log('Trying to update');
   axios
     .put(`http://localhost:8000/api/authors/${id}/edit`, author)
-    .then(res => {console.log(res); navigate('/');})
+    .then(res => { console.log(res); })
     .catch(err => {
-      if (err.response && err.response.data && err.response.data.errors && err.response.data.errors.name) {
-        const errorResponse = err.response.data.errors.name;
-        const errorArr = Object.values(errorResponse).map(error => error.message);
+      console.log(err.response.data.errors);
+      if (err.response && err.response.data && err.response.data.errors) {
+        const errorResponse = err.response.data.errors;
+        const errorArr = Object.values(errorResponse);
         setErrors(errorArr);
+        console.log(console.log(errorArr));
       } else {
-        setErrors(["An error occurred while editing the author."]);
+        setErrors([{ message: "An error occurred while editing the author." }]);
       }
     });
 };
+
 
 if (!loaded) {
   return <p>Loading...</p>;
