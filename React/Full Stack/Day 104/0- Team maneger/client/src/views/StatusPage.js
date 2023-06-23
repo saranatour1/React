@@ -23,11 +23,6 @@ function StatusPage() {
 
 
 
-
-
-
-
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -39,8 +34,7 @@ function StatusPage() {
         if(location.pathname.includes('/status/game')){
           navigate(`/status/game/${response.data[0]._id}`);
         }
-    
-
+  
       } catch (err) {
         console.log(err);
       }

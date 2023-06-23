@@ -69,7 +69,6 @@ console.log(selectedChoice)
                   Undecided
                 </button>
 
-
               </TableCell>
 
             </TableRow>
