@@ -6,11 +6,10 @@ import FormInput from '../components/FormInput';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 function AddPlayerPage() {
-  // const [name, setName] = useState('');
-  // const [position , setPosition] = useState('')
+
   const navigate = useNavigate();
   const [players , setPlayers] = useState([]);
-  const [errors, setErrors] = useState();
+  const [errors, setErrors] = useState([]);
 
 
   const createPlayer = person => {
@@ -22,6 +21,7 @@ function AddPlayerPage() {
         navigate('/');
       })
       .catch(err => {
+        console.log(err.response.data)
         if (err.response && err.response.data && err.response.data.errors && err.response.data.errors.name) {
           const errorResponse = err.response.data.errors.name;
           const errorArr = Object.values(errorResponse).map(error => error.message);
@@ -32,7 +32,7 @@ function AddPlayerPage() {
       });
   };
 
-  
+
 
   return (
     <div>
@@ -44,6 +44,7 @@ function AddPlayerPage() {
           initialName=""
           initialPosition='empty'
           errMsg={errors} />
+
       </CardComponent>
     </div>
   )

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 // removed the earlier imports 
 import {useNavigate} from 'react-router-dom';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
+
 function FormInput({ onSubmitProp, initialName, errMsg }) {
   const [name, setName] = useState(initialName);
   const navigate = useNavigate();

@@ -40,7 +40,8 @@ function FormInput({ onSubmitProp, initialName , initialPosition, errMsg }) {
     {errMsg && errMsg.map((err, index) => <p style={{color:'#dc3545'}} key={index}>{err}</p>)}
 
       <Stack spacing={2} >
-      <TextField id="standard-basic" label="Name" variant="standard"  onChange={e => {setName(e.target.value); if(e.target.value.length >=2){setIsValidated(false);} else{setIsValidated(true);}}} defaultValue={name}/>      
+      <TextField id="standard-basic" label="Name" variant="standard"  
+      onChange={e => {setName(e.target.value); if(e.target.value.length >=2){setIsValidated(false);} else{setIsValidated(true);}}} defaultValue={name}/>      
       <Autocomplete
         disablePortal
         id="combo-box-demo"
