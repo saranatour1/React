@@ -32,6 +32,7 @@ function AddPlayerPage() {
       });
   };
 
+  
 
   return (
     <div>

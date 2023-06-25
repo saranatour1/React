@@ -7,12 +7,14 @@ import { Autocomplete, TextField } from '@mui/material';
 
 function FormInput({ onSubmitProp, initialName , initialPosition, errMsg }) {
   const [name, setName] = useState(initialName);
-  const [position , setPosition] = useState(initialPosition)
+  const [position , setPosition] = useState(initialPosition); 
+  const [isValidated , setIsValidated] =useState(true);
   const navigate = useNavigate();
 
   const onSubmitHandler = e => {
     e.preventDefault();
     onSubmitProp({ name, position });
+
     // navigate('/');
   };
 
@@ -38,7 +40,7 @@ function FormInput({ onSubmitProp, initialName , initialPosition, errMsg }) {
     {errMsg && errMsg.map((err, index) => <p style={{color:'#dc3545'}} key={index}>{err}</p>)}
 
       <Stack spacing={2} >
-      <TextField id="standard-basic" label="Name" variant="standard"  onChange={e => setName(e.target.value)} defaultValue={name}/>      
+      <TextField id="standard-basic" label="Name" variant="standard"  onChange={e => {setName(e.target.value); if(e.target.value.length >=2){setIsValidated(false);} else{setIsValidated(true);}}} defaultValue={name}/>      
       <Autocomplete
         disablePortal
         id="combo-box-demo"
@@ -51,7 +53,7 @@ function FormInput({ onSubmitProp, initialName , initialPosition, errMsg }) {
 
       <Stack spacing={2} direction="row" style={{margin: '1em auto'}}>
       <Button variant="outlined"  onClick={() => navigate('/')}>Cacnel</Button>
-      <Button variant="outlined" onClick={onSubmitHandler}>Submit</Button>
+      <Button variant="outlined" onClick={onSubmitHandler} disabled={isValidated} >Submit</Button>
       </Stack>
     </form>
 
