@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-function Info() {
+import DeleteButton from './DeleteButton';
+
+function Info( ) {
   const {id} = useParams();
   const [product, setProduct] = useState([]);
+  const navigate = useNavigate();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -18,12 +22,17 @@ function Info() {
     fetchData();
   }, []);
 
+  const deleteItem=(id) => {
+    navigate('/');
+    
+  }
   
 
   return (
-
+    
     <div>
       <h3>name :  {product.name}</h3>
+      <DeleteButton removeFromDom= { () => deleteItem(id)}  id={id}/>
     </div>
   )
 }

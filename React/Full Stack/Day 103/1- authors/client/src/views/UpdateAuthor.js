@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import FormInput from '../components/FormInput';
 
@@ -10,6 +10,7 @@ function UpdateAuthor() {
   const [loaded, setLoaded] = useState(false);
   const [errors , setErrors] = useState();
 
+  const navigate = useNavigate(); 
 
   //get request 
   useEffect(() => {
@@ -29,7 +30,7 @@ const updateAuthor = author => {
   console.log('Trying to update');
   axios
     .put(`http://localhost:8000/api/authors/${id}/edit`, author)
-    .then(res => { console.log(res); })
+    .then(res => { console.log(res); navigate('/') })
     .catch(err => {
       console.log(err.response);
       if (err.response && err.response.data && err.response.data.errors) {

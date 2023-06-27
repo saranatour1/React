@@ -5,7 +5,6 @@ import Header from '../components/Header';
 import { useNavigate } from 'react-router-dom';
 
 function AddAuthorPage() {
-  const [name, setName] = useState("");
   const [authors, setAuthors] = useState([]);
   const [errors, setErrors] = useState([]);
 
