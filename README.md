@@ -1,3 +1,8 @@
+### Why no one uses CRA anymore 
+A good article on this: [Link](https://dev.to/ag2byte/create-react-app-is-officially-dead-h7o#:~:text=The%20problem%20with%20CRA)   
+check this to see which frameworks support React ==> [Link](https://react.dev/learn/start-a-new-react-project#production-grade-react-frameworks)   
+A good runner up after Vite is nextJS in my opinion => [Link](https://github.com/vercel/next.js)  
+
 # Steps to edit the functionality
 
 a personal recommendation is to create a template folder containing server and client folders.
