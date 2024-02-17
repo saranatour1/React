@@ -1,21 +1,15 @@
-import React, { Component } from 'react';
-
-class ToDo extends Component{
-  render() {        
-    return (            
-      <>
-            <h3>Things I need to Do</h3> 
-            <ul>
-              <li> Learn React</li>
-              <li> Climb mount everist</li>
-              <li>Run a marathon</li>
-              <li> Feed the dogs </li>
-            </ul>
-      </>
-      
-    );    
-}
-
-
-}
+import React from "react";
+const tasks = ["Learn React", "Climb mount everist", "Run a marathon", "Feed the dogs"];
+const ToDo = () => {
+  return (
+    <>
+      <h3>Things I need to Do</h3>
+      <ul>
+        {tasks.map((task, id) => (
+          <li key={id}>{task}</li>
+        ))}
+      </ul>
+    </>
+  );
+};
 export default ToDo;

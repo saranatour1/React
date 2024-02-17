@@ -1,21 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import styles from './styles.module.css'; // Import the CSS module
+import React from "react";
+import styles from "./styles.module.css"; 
 
-class Navigation extends Component {
-
-
-  render() {
-    return (
-      <section className={styles.navigation}>
-
-      </section>
-    );
-  }
-}
-
-Navigation.propTypes = {
-
+const Navigation = () => {
+  return <section className={styles.navigation}></section>;
 };
 
 export default Navigation;
