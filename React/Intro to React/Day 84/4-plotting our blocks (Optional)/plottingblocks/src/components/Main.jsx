@@ -1,21 +1,8 @@
-import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
-import styles from './styles.module.css';
+import React from "react";
+import styles from "./styles.module.css";
 
-class Main extends Component {
-
-
-  render() {
-    return (
-      <section className={styles.main}>
-         { this.props.children }
-      </section>
-    );
-  }
-}
-
-Main.propTypes = {
-
+const Main = ({ children }) => {
+  return <section className={styles.main}>{children}</section>;
 };
 
 export default Main;
