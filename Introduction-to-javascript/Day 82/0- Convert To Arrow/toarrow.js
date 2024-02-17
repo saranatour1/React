@@ -1,6 +1,6 @@
 /**
- * Converted to elements instead of calling them within the functions.
  *
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
  */
 const blueBtn = document.getElementById("button");
 const alertBtn = document.getElementById("alert");
@@ -36,10 +36,10 @@ paragraph.addEventListener("mouseout" , () =>{
   setBackgroundColorById("body", "white");
 });
 
-let getValueFromId = (id) => document.getElementById(id).value;
+const getValueFromId = (id) => document.getElementById(id).value;
 
-let setBackgroundColorById = (id, color) => {
+const setBackgroundColorById = (id, color) => {
   document.getElementById(id).style = "background-color: " + color;
 };
 
-let mouseOverFunction = (el) => (el.style = "background-color: black");
+const mouseOverFunction = (el) => (el.style = "background-color: black");

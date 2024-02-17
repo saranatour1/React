@@ -1,10 +1,9 @@
 /**
- * #1 :
- *    var hello;
- *    console.log(hello); // undefined
- *    var hello = "world";
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const
  */
-
 console.log(hello);
 var hello = "world";
 
@@ -46,9 +45,9 @@ function print() {
 console.log(brendan);
 
 /**
- * #4 : the code-block is being run line by line , so the first time it outputs 'chocken'
+ * #4 : the code-block is being run line by line , so the first time it outputs 'chicken'
  *
- *  the second time, th function is called , and food is re-asigned to half chicken.
+ *  the second time, th function is called , and food is re-assigned to half chicken.
  *
  * var food = 'chicken';
  *
@@ -70,10 +69,10 @@ function eat() {
 
 /**
  * #5 :
- *    the previous code , gives an error as that the variable mean() is being refrenced before being defined
- *    hence it resyults in an error that the fucntion is not defined,
- *    and the variable food is not defined and results in refrrence error.
- *    after modificatiion this is the result :
+ *    the previous code , gives an error as that the variable mean() is being referenced before being defined
+ *    hence it results in an error that the function is not defined,
+ *    and the variable food is not defined and results in reference error.
+ *    after modification this is the result :
  *    // chicken
  *    // fish
  *    // fish
@@ -124,7 +123,7 @@ console.log(dojo); // san jose
 learn();
 function learn() {
   dojo = "seattle";
-  console.log(dojo); // seatle
+  console.log(dojo); // seattle
   var dojo = "burbank";
   console.log(dojo); // burbank
 }
@@ -132,7 +131,7 @@ console.log(dojo); // san jose
 
 /**
  * #8:
- *    an object of type const connot be re-instantiated
+ *    an object of type const cannot be re-instantiated
  *    so it will give out an error on re-assignment
  *
  */

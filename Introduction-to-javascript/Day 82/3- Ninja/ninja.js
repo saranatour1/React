@@ -1,6 +1,6 @@
 /**
- * Ninja class, initializes health, speed , strength, and adds name.
- *
+ * 
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes 
  */
 
 class Ninja {
