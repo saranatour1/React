@@ -1,40 +1,29 @@
 import React, { useState } from "react";
 import "./Tabs.css";
 
-const Tabs = (props) => {
-  const tabs = props.tabs;
+const Tabs = ({ tabs }) => {
   const [isOpened, setIsOpened] = useState(0);
 
-  const handleClickBtn = (Idx) => {
-    setIsOpened(Idx);
+  const handleClickBtn = (idx) => {
+    setIsOpened(idx);
   };
 
   return (
     <div>
-      {tabs.map((elem, Idx) => (
+      {tabs.map((tab, idx) => (
         <button
-          onClick={() => handleClickBtn(Idx)}
-          style={{
-            padding: "10px",
-            margin: "5px",
-            backgroundColor: Idx === isOpened ? "black" : "white",
-            color: Idx === isOpened ? "white" : "black",
-          }}
-          key={Idx}
+          onClick={() => handleClickBtn(idx)}
+          className={`tab-button ${idx === isOpened ? "active" : ""}`}
+          key={idx}
         >
-          {elem.label}
+          {tab.label}
         </button>
       ))}
-      <p
-        style={{
-          border: "1px solid gray",
-          width: "200px",
-          height: "200px",
-          margin: "1em auto",
-        }}
-      >
-        {tabs[isOpened].content}
-      </p>
+      {tabs[isOpened] && (
+        <p className="tab-content">
+          {tabs[isOpened].content}
+        </p>
+      )}
     </div>
   );
 };
