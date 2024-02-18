@@ -1,7 +1,6 @@
 import React from "react";
 
 function DisplayBoxes(props) {
-
   return (
     <div style={{ display: "flex", flexWrap: "wrap" }}>
       {props.sendColor.map((elem, idx) => (
@@ -14,8 +13,7 @@ function DisplayBoxes(props) {
             backgroundColor: elem[0],
           }}
         >
-          {" "}
-          {elem}{" "}
+          {elem}
         </div>
       ))}
     </div>
